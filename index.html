@@ -7,43 +7,94 @@
     body {
       margin: 0;
       height: 100vh;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
     }
 
     .container {
-      text-align: center;
-      padding: 20px 40px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      backdrop-filter: blur(10px);
     }
 
     h1 {
-      font-size: 40px;
-      margin-bottom: 25px;
-      text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
-      letter-spacing: 2px;
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    .vertical-text {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
+    .email {
       font-size: 20px;
-      opacity: 0.9;
-      user-select: all;
+      margin-bottom: 20px;
+      word-break: break-all;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #ffffff20;
+      color: white;
+      backdrop-filter: blur(4px);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffffff40;
+      transform: scale(1.05);
+    }
+
+    .copied {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #d4ffd4;
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Contact</h1>
-    <div class="vertical-text">omar.elmallah2001@gmail.com</div>
+    <div class="email" id="email">omar.elmallah2001@gmail.com</div>
+    <div class="buttons">
+      <button onclick="copyEmail()">📋 Copy Email</button>
+      <button onclick="openMail()">✉️ Send Email</button>
+    </div>
+    <div class="copied" id="copied-msg">✔ Email copied!</div>
   </div>
+
+  <script>
+    function copyEmail() {
+      const email = document.getElementById('email').textContent;
+      navigator.clipboard.writeText(email).then(() => {
+        const msg = document.getElementById('copied-msg');
+        msg.style.display = 'block';
+        setTimeout(() => {
+          msg.style.display = 'none';
+        }, 2000);
+      });
+    }
+
+    function openMail() {
+      const email = document.getElementById('email').textContent;
+      window.location.href = `mailto:${email}`;
+    }
+  </script>
 </body>
 </html>
