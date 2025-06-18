@@ -10,25 +10,33 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #00c6ff, #0072ff); /* تدرج أزرق جميل */
-      font-family: Arial, sans-serif;
-      color: white;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
     }
 
     .container {
       text-align: center;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 25px;
+      text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+      letter-spacing: 2px;
     }
 
     .vertical-text {
       writing-mode: vertical-rl;
-      font-size: 24px;
-      margin-top: 20px;
-    }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+      transform: rotate(180deg);
+      font-size: 20px;
+      opacity: 0.9;
+      user-select: all;
     }
   </style>
 </head>
